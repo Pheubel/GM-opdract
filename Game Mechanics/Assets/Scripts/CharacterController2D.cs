@@ -1,5 +1,7 @@
 using System;
+using Unity.Assertions;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour
@@ -10,6 +12,7 @@ public class CharacterController2D : MonoBehaviour
     public bool IsInAir => (_currentState & CharacterStateFlag.IsGrounded) == 0;
     public bool IsOnGround => (_currentState & CharacterStateFlag.IsGrounded) != 0;
 
+    [SerializeField] UnityEvent _onGrounded;
 
     [SerializeField] private float _jumpForce = 400f;
     [SerializeField] private float _movementSpeed = 10f;
@@ -37,6 +40,9 @@ public class CharacterController2D : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        Assert.IsNotNull(noFriction, $"({gameObject.name}.{nameof(noFriction)}) no physics material set.");
+        Assert.IsNotNull(fullFriction, $"({gameObject.name}.{nameof(fullFriction)}) no physics material set.");
     }
 
     private void FixedUpdate()
@@ -54,6 +60,9 @@ public class CharacterController2D : MonoBehaviour
 
         if (Physics2D.OverlapCircle(position, groundCheckRadius, _groundMask) && (isFalling || IsOnGround))
         {
+            if ((_currentState & CharacterStateFlag.IsGrounded) == 0)
+                _onGrounded?.Invoke();
+
             _currentState |= CharacterStateFlag.IsGrounded;
         }
         else
@@ -191,6 +200,9 @@ public class CharacterController2D : MonoBehaviour
     {
         _horizontalForce = horizontalForce;
     }
+
+    public void StopHorizontalMovement() =>
+        _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
 
     private void OnDrawGizmos()
     {

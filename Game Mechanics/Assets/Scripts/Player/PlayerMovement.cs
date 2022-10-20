@@ -3,9 +3,13 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController2D))]
+[RequireComponent(typeof(PlayerShoot))]
 public class PlayerMovement : MonoBehaviour
 {
+    bool _controlsEnabled;
+
     CharacterController2D _characterController;
+    PlayerShoot _playerShoot;
 
     GameControls _controls;
     InputAction _moveAction;
@@ -20,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _characterController = GetComponent<CharacterController2D>();
+        _playerShoot = GetComponent<PlayerShoot>();
         _controls = new GameControls();
 
         _controls.Enable();
@@ -30,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        //if (!_controlsEnabled)
+        //    return;
+
         var moveInput = _moveAction.ReadValue<float>();
         var jumpPressed = _jumpAction.IsPressed();
 
@@ -60,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
                     _doubleJumpsUsed++;
                     _characterController.ForceJump();
+                    _playerShoot.JumpShoot();
                 }
             }
             else
@@ -70,4 +79,10 @@ public class PlayerMovement : MonoBehaviour
 
         _previousJumpPressed = jumpPressed;
     }
+
+    public void EnableControls() =>
+        _controls.Enable();
+
+    public void DisableControls() =>
+        _controls.Disable();
 }
