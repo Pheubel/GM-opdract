@@ -365,11 +365,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &201739904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8592973906683072666, guid: 327d022bc9a47bb49a0864e29fecc51e, type: 3}
-  m_PrefabInstance: {fileID: 2140006899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &201739905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8592973906683072670, guid: 327d022bc9a47bb49a0864e29fecc51e, type: 3}
@@ -380,7 +375,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 118629709578857330, guid: 327d022bc9a47bb49a0864e29fecc51e, type: 3}
   m_PrefabInstance: {fileID: 2140006899}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201739904}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
@@ -391,10 +386,21 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 714725162244335646, guid: 327d022bc9a47bb49a0864e29fecc51e, type: 3}
   m_PrefabInstance: {fileID: 2140006899}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201739904}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b20e1ae7274fb44eb969f87754ac98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &201739917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8592973906683072642, guid: 327d022bc9a47bb49a0864e29fecc51e, type: 3}
+  m_PrefabInstance: {fileID: 2140006899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60b2001e4118b349b465e374f7fd039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &321806130
@@ -3958,23 +3964,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3548014879142265679, guid: 6f2786f073cba0d4f873022b06f428f2, type: 3}
       propertyPath: OnPickUp.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3548014879142265679, guid: 6f2786f073cba0d4f873022b06f428f2, type: 3}
       propertyPath: OnPickUp.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 201739904}
+      objectReference: {fileID: 201739917}
     - target: {fileID: 3548014879142265679, guid: 6f2786f073cba0d4f873022b06f428f2, type: 3}
       propertyPath: OnPickUp.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3548014879142265679, guid: 6f2786f073cba0d4f873022b06f428f2, type: 3}
       propertyPath: OnPickUp.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: 
+      value: SetMaxDoubleJumps
       objectReference: {fileID: 0}
     - target: {fileID: 3548014879142265679, guid: 6f2786f073cba0d4f873022b06f428f2, type: 3}
       propertyPath: OnPickUp.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UnityEngine.Playables.PlayableDirector, UnityEngine
+      value: PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548014879142265679, guid: 6f2786f073cba0d4f873022b06f428f2, type: 3}
+      propertyPath: OnPickUp.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3548014879142265679, guid: 6f2786f073cba0d4f873022b06f428f2, type: 3}
       propertyPath: OnPickUp.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
