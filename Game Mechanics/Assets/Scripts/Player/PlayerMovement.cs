@@ -4,12 +4,14 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController2D))]
 [RequireComponent(typeof(PlayerShoot))]
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
     bool _controlsEnabled;
 
     CharacterController2D _characterController;
     PlayerShoot _playerShoot;
+    Animator _animator;
 
     GameControls _controls;
     InputAction _moveAction;
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController2D>();
         _playerShoot = GetComponent<PlayerShoot>();
+        _animator = GetComponent<Animator>();
         _controls = new GameControls();
 
         _controls.Enable();
@@ -42,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         var jumpPressed = _jumpAction.IsPressed();
 
         _characterController.Move(moveInput);
+        _animator.SetFloat("speed", moveInput);
 
         HandleJumps(jumpPressed);
     }
@@ -79,6 +83,9 @@ public class PlayerMovement : MonoBehaviour
 
         _previousJumpPressed = jumpPressed;
     }
+
+    public void SetMaxDoubleJumps(int value) =>
+        _maxDoubleJumps = value;
 
     public void EnableControls() =>
         _controls.Enable();

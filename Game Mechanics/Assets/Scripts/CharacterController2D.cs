@@ -35,6 +35,7 @@ public class CharacterController2D : MonoBehaviour
     private Vector2 _slopeNormalPerpendicular;
 
     private CharacterStateFlag _currentState;
+    [SerializeField] int debugState;
 
 
     private void Awake()
@@ -52,11 +53,13 @@ public class CharacterController2D : MonoBehaviour
         HandleGround(pos);
         HandleSlope(pos);
         HandleMovement();
+
+        debugState = (int)_currentState;
     }
 
     private void HandleGround(Vector2 position)
     {
-        bool isFalling = _rigidbody.velocity.y <= 0.0f;
+        bool isFalling = _rigidbody.velocity.y <= 0.001f; // velocity acts weird when on the ground so approximating should be OK
 
         if (Physics2D.OverlapCircle(position, groundCheckRadius, _groundMask) && (isFalling || IsOnGround))
         {
