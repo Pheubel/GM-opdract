@@ -1,5 +1,5 @@
 using Cinemachine;
-using Unity.Assertions;
+using UnityEngine.Assertions;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
