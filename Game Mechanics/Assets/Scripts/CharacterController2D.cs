@@ -207,6 +207,13 @@ public class CharacterController2D : MonoBehaviour
     public void StopHorizontalMovement() =>
         _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
 
+    public void TeleportAndReset(Vector2 destination)
+    {
+        _rigidbody.velocity = Vector2.zero;
+        _rigidbody.position = destination;
+        _currentState = default;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(_groundCheck.position, groundCheckRadius);

@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     int _doubleJumpsUsed;
     [SerializeField] int _maxDoubleJumps;
 
+    [SerializeField] UnityEvent _onJump;
     [SerializeField] UnityEvent _onDoubleJump;
 
     private void Start()
@@ -63,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
                 // is grounded?
                 if (_characterController.IsOnGround)
                 {
+                    _onJump?.Invoke();
+
                     _doubleJumpsUsed = 0;
                     _characterController.Jump();
                 }
