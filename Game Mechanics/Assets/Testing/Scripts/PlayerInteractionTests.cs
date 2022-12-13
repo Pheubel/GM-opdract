@@ -6,16 +6,25 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using Testing;
 using UnityEditor;
+using UnityEngine.InputSystem;
 
 public class PlayerInteractionTests
 {
     TestScenario _scenarioPrefab;
     TestScenario _scenario;
 
+    Keyboard _keyboard;
+
     [OneTimeSetUp]
     public void SetUpOnce()
     {
-        // load the test scene with various scenarios
+        _keyboard = InputSystem.AddDevice<Keyboard>();
+
+        //var actions = InputSystem.ListEnabledActions();
+        //InputSystem.
+        //actions[0]
+
+        // load the test prefab with various scenarios
         _scenarioPrefab = AssetDatabase.LoadAssetAtPath<TestScenario>("Assets/Testing/Prefabs/Movement Test Scenario.prefab");
 
         if (_scenarioPrefab == null)
@@ -34,13 +43,21 @@ public class PlayerInteractionTests
         Object.Destroy(_scenario);
     }
 
+    private GameObject PreparePlayer(Transform location)
+    {
+        var playerObject = Object.Instantiate(_scenario.PlayerPrefab, location.position, Quaternion.identity);
+
+
+        return playerObject;
+    }
+
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest]
     public IEnumerator PlayerInteractionTestsWithEnumeratorPasses()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
+        var player = PreparePlayer(_scenario.LeftFromBlock);
+        
         yield return null;
     }
 }
