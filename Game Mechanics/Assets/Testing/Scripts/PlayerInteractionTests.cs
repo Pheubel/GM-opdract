@@ -4,23 +4,34 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
+using Testing;
+using UnityEditor;
 
 public class PlayerInteractionTests
 {
-    GameObject _playerObject;
+    TestScenario _scenarioPrefab;
+    TestScenario _scenario;
+
+    [OneTimeSetUp]
+    public void SetUpOnce()
+    {
+        // load the test scene with various scenarios
+        _scenarioPrefab = AssetDatabase.LoadAssetAtPath<TestScenario>("Assets/Testing/Prefabs/Movement Test Scenario.prefab");
+
+        if (_scenarioPrefab == null)
+            throw new System.Exception("Could not load in test scenario.");
+    }
 
     [SetUp]
     public void SetUpTest()
     {
-        // load the test scene with various scenarios
-        SceneManager.LoadScene("Test Scene");
+        _scenario = Object.Instantiate(_scenarioPrefab);
+    }
 
-        _playerObject = GameObject.FindGameObjectWithTag("Player");
-
-        if (_playerObject == null)
-        {
-            throw new System.Exception("No player object found in the scene");
-        }
+    [TearDown]
+    public void TestTeardown()
+    {
+        Object.Destroy(_scenario);
     }
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
