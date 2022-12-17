@@ -85,5 +85,53 @@ public class PlayerInteractionTests : InputTestFixture
 
         Object.Destroy(player);
     }
+
+    [UnityTest]
+    public IEnumerator PlayerMovesUpSlope()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.SlopeBottom);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Press(keyboard.dKey, 1);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerRightFromSlope.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerMovesDownSlope()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.SlopeTop);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Press(keyboard.aKey, 1);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerLeftFromSlope.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerDoesNotSlipDownSlope()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.SlopeDrop);
+
+        var begin = player.transform.position;
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.AreEqual(begin.x, player.transform.position.x, 0.1);
+
+        Object.Destroy(player);
     }
 }
