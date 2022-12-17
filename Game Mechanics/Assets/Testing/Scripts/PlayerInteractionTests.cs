@@ -65,6 +65,8 @@ public class PlayerInteractionTests : InputTestFixture
         yield return new WaitForSeconds(1f);
 
         Assert.IsTrue(_scenario.TriggerLeftFromEmpty.IsPlayerInTrigger);
+
+        Object.Destroy(player);
     }
 
     [UnityTest]
@@ -80,5 +82,8 @@ public class PlayerInteractionTests : InputTestFixture
         yield return new WaitForSeconds(1f);
 
         Assert.IsTrue(_scenario.TriggerRightFromEmpty.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
     }
 }
