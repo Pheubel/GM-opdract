@@ -4761,15 +4761,15 @@ MonoBehaviour:
   <LeftFromBlock>k__BackingField: {fileID: 9024219937995731932}
   <OnBlock>k__BackingField: {fileID: 4547655856094055098}
   <RightFromBlock>k__BackingField: {fileID: 864898068348885818}
-  <TriggerLeftFromEmpty>k__BackingField: {fileID: 5211023195078376666}
-  <TriggerRightFromEmpty>k__BackingField: {fileID: 9215104720808506263}
-  <TriggerLeftFromSlope>k__BackingField: {fileID: 6680599606347867445}
-  <TriggerRightFromSlope>k__BackingField: {fileID: 4033611516481376201}
-  <TriggerAboveDestructableBlock>k__BackingField: {fileID: 3319097985554990686}
-  <TriggerBelowDestructableBlock>k__BackingField: {fileID: 8188046603774722305}
-  <TriggerLeftFromBlock>k__BackingField: {fileID: 3701271737392982681}
-  <TriggerRightFromBlock>k__BackingField: {fileID: 510539822550579779}
-  <TriggerOnTopOfBlock>k__BackingField: {fileID: 5271965824811434698}
+  <TriggerLeftFromEmpty>k__BackingField: {fileID: 79055367946815959}
+  <TriggerRightFromEmpty>k__BackingField: {fileID: 2737245069092035005}
+  <TriggerLeftFromSlope>k__BackingField: {fileID: 6330590915433772393}
+  <TriggerRightFromSlope>k__BackingField: {fileID: 3875705187247861826}
+  <TriggerAboveDestructableBlock>k__BackingField: {fileID: 5824850679847598460}
+  <TriggerBelowDestructableBlock>k__BackingField: {fileID: 3210781129683495325}
+  <TriggerLeftFromBlock>k__BackingField: {fileID: 1434812488120126114}
+  <TriggerRightFromBlock>k__BackingField: {fileID: 8784214040361974606}
+  <TriggerOnTopOfBlock>k__BackingField: {fileID: 4925634799138213707}
 --- !u!1 &1584598583922466810
 GameObject:
   m_ObjectHideFlags: 0

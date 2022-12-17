@@ -8,18 +8,14 @@ using Testing;
 using UnityEditor;
 using UnityEngine.InputSystem;
 
-public class PlayerInteractionTests
+public class PlayerInteractionTests : InputTestFixture
 {
     TestScenario _scenarioPrefab;
     TestScenario _scenario;
 
-    Keyboard _keyboard;
-
     [OneTimeSetUp]
     public void SetUpOnce()
     {
-        _keyboard = InputSystem.AddDevice<Keyboard>();
-
         //var actions = InputSystem.ListEnabledActions();
         //InputSystem.
         //actions[0]
@@ -34,12 +30,16 @@ public class PlayerInteractionTests
     [SetUp]
     public void SetUpTest()
     {
+        Debug.Log("setup called");
+
         _scenario = Object.Instantiate(_scenarioPrefab);
     }
 
     [TearDown]
     public void TestTeardown()
     {
+        Debug.Log("teardown called");
+
         Object.Destroy(_scenario);
     }
 
@@ -51,13 +51,34 @@ public class PlayerInteractionTests
         return playerObject;
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
+
     [UnityTest]
-    public IEnumerator PlayerInteractionTestsWithEnumeratorPasses()
+    public IEnumerator PlayerMovesToLeft()
     {
-        var player = PreparePlayer(_scenario.LeftFromBlock);
-        
-        yield return null;
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.EmptyBox);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Press(keyboard.aKey, 1);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerLeftFromEmpty.IsPlayerInTrigger);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerMovesToRight()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.EmptyBox);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Press(keyboard.aKey, 1);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerRightFromEmpty.IsPlayerInTrigger);
     }
 }

@@ -34,30 +34,30 @@ namespace Testing
 
         [field: Header("triggers")]
         [field: SerializeField]
-        public Collider2D TriggerLeftFromEmpty { get; private set; }
+        public TriggerInformation TriggerLeftFromEmpty { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerRightFromEmpty { get; private set; }
+        public TriggerInformation TriggerRightFromEmpty { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerLeftFromSlope { get; private set; }
+        public TriggerInformation TriggerLeftFromSlope { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerRightFromSlope { get; private set; }
+        public TriggerInformation TriggerRightFromSlope { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerAboveDestructableBlock { get; private set; }
+        public TriggerInformation TriggerAboveDestructableBlock { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerBelowDestructableBlock { get; private set; }
+        public TriggerInformation TriggerBelowDestructableBlock { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerLeftFromBlock { get; private set; }
+        public TriggerInformation TriggerLeftFromBlock { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerRightFromBlock { get; private set; }
+        public TriggerInformation TriggerRightFromBlock { get; private set; }
 
         [field: SerializeField]
-        public Collider2D TriggerOnTopOfBlock { get; private set; }
+        public TriggerInformation TriggerOnTopOfBlock { get; private set; }
     }
 }
