@@ -75,7 +75,7 @@ public class PlayerInteractionTests : InputTestFixture
 
         yield return new WaitForSeconds(0.1f);
 
-        Press(keyboard.aKey, 1);
+        Press(keyboard.dKey, 1);
 
         yield return new WaitForSeconds(1f);
 
