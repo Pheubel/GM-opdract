@@ -274,4 +274,40 @@ public class PlayerInteractionTests : InputTestFixture
 
         Object.Destroy(player);
     }
+
+    [UnityTest]
+    public IEnumerator PlayerFallsDownWalkingLeft()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.OnBlock);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.aKey);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerLeftFromBlock.IsPlayerInTrigger);
+        Assert.IsFalse(_scenario.TriggerRightFromBlock.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerFallsDownWalkingRight()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.OnBlock);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.dKey);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerRightFromBlock.IsPlayerInTrigger);
+        Assert.IsFalse(_scenario.TriggerLeftFromBlock.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
 }
