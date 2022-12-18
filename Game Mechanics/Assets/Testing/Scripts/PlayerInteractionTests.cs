@@ -134,4 +134,50 @@ public class PlayerInteractionTests : InputTestFixture
 
         Object.Destroy(player);
     }
+
+    [UnityTest]
+    public IEnumerator PlayerWithoutDoubleJumpDoesNotBreakBlocks()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.DestructableBlocks);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.spaceKey, 0.1f);
+        yield return new WaitForSeconds(0.2f);
+        Release(keyboard.spaceKey, 0.1f);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey, 0.1f);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerOnDestructableBlock.IsPlayerInTrigger);
+        Assert.IsTrue(_scenario.TriggerAboveDestructableBlock.HasPlayerEnteredTrigger);
+        Assert.IsFalse(_scenario.TriggerBelowDestructableBlock.HasPlayerEnteredTrigger);
+
+        Object.Destroy(player);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerWithDoubleJumpBreaksBlocks()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.DestructableBlocks);
+        player.GetComponent<PlayerMovement>().SetMaxDoubleJumps(1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.spaceKey, 0.1f);
+        yield return new WaitForSeconds(0.2f);
+        Release(keyboard.spaceKey, 0.1f);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey, 0.1f);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerAboveDestructableBlock.HasPlayerEnteredTrigger);
+        Assert.IsTrue(_scenario.TriggerBelowDestructableBlock.HasPlayerEnteredTrigger);
+
+        Object.Destroy(player);
+    }
 }

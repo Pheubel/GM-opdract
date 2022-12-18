@@ -49,6 +49,9 @@ namespace Testing
         public TriggerInformation TriggerAboveDestructableBlock { get; private set; }
 
         [field: SerializeField]
+        public TriggerInformation TriggerOnDestructableBlock { get; private set; }
+
+        [field: SerializeField]
         public TriggerInformation TriggerBelowDestructableBlock { get; private set; }
 
         [field: SerializeField]

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7735193522372353233}
   - component: {fileID: 6680599606347867445}
   - component: {fileID: 6330590915433772393}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left From Slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4469,14 +4469,6 @@ CompositeCollider2D:
         Y: 90000000
       - X: -80000000
         Y: 60000000
-    - - X: -160000000
-        Y: 40000000
-      - X: -260000000
-        Y: 40000000
-      - X: -260000000
-        Y: -40000000
-      - X: -160000000
-        Y: -40000000
     - - X: -50000000
         Y: 40000000
       - X: -140000000
@@ -4485,13 +4477,13 @@ CompositeCollider2D:
         Y: -40000000
       - X: -50000000
         Y: -40000000
-    - - X: 50000000
+    - - X: -160000000
         Y: 40000000
-      - X: -30000000
+      - X: -260000000
         Y: 40000000
-      - X: -30000000
+      - X: -260000000
         Y: -40000000
-      - X: 50000000
+      - X: -160000000
         Y: -40000000
     - - X: 270000000
         Y: 40000000
@@ -4501,6 +4493,14 @@ CompositeCollider2D:
         Y: -40000000
       - X: 270000000
         Y: -40000000
+    - - X: 50000000
+        Y: 40000000
+      - X: -30000000
+        Y: 40000000
+      - X: -30000000
+        Y: -40000000
+      - X: 50000000
+        Y: -40000000
     - - X: 460000000
         Y: 40000000
       - X: 310000000
@@ -4509,18 +4509,6 @@ CompositeCollider2D:
         Y: -50000000
       - X: 460000000
         Y: -50000000
-    - - X: 100000000
-        Y: -30000000
-      - X: 100000000
-        Y: 30000000
-      - X: 260000000
-        Y: 30000000
-      - X: 260000000
-        Y: 0
-      - X: 220000000
-        Y: 0
-      - X: 160000000
-        Y: -30000000
     - - X: -20000000
         Y: -30000000
       - X: -20000000
@@ -4528,22 +4516,6 @@ CompositeCollider2D:
       - X: 40000000
         Y: 30000000
       - X: 40000000
-        Y: -30000000
-    - - X: -130000000
-        Y: -30000000
-      - X: -130000000
-        Y: 30000000
-      - X: -60000000
-        Y: 30000000
-      - X: -60000000
-        Y: -30000000
-    - - X: -250000000
-        Y: -30000000
-      - X: -250000000
-        Y: 30000000
-      - X: -170000000
-        Y: 30000000
-      - X: -170000000
         Y: -30000000
     - - X: 320000000
         Y: -40000000
@@ -4561,6 +4533,34 @@ CompositeCollider2D:
         Y: -10000000
       - X: 370000000
         Y: -40000000
+    - - X: 100000000
+        Y: -30000000
+      - X: 100000000
+        Y: 30000000
+      - X: 260000000
+        Y: 30000000
+      - X: 260000000
+        Y: 0
+      - X: 220000000
+        Y: 0
+      - X: 160000000
+        Y: -30000000
+    - - X: -250000000
+        Y: -30000000
+      - X: -250000000
+        Y: 30000000
+      - X: -170000000
+        Y: 30000000
+      - X: -170000000
+        Y: -30000000
+    - - X: -130000000
+        Y: -30000000
+      - X: -130000000
+        Y: 30000000
+      - X: -60000000
+        Y: 30000000
+      - X: -60000000
+        Y: -30000000
     - - X: -160000000
         Y: -60000000
       - X: -260000000
@@ -4585,14 +4585,6 @@ CompositeCollider2D:
         Y: -200000000
       - X: 70000000
         Y: -200000000
-    - - X: 0
-        Y: -190000000
-      - X: 0
-        Y: -70000000
-      - X: 60000000
-        Y: -70000000
-      - X: 60000000
-        Y: -190000000
     - - X: -130000000
         Y: -190000000
       - X: -130000000
@@ -4600,6 +4592,14 @@ CompositeCollider2D:
       - X: -60000000
         Y: -70000000
       - X: -60000000
+        Y: -190000000
+    - - X: 0
+        Y: -190000000
+      - X: 0
+        Y: -70000000
+      - X: 60000000
+        Y: -70000000
+      - X: 60000000
         Y: -190000000
     - - X: -250000000
         Y: -190000000
@@ -4765,7 +4765,8 @@ MonoBehaviour:
   <TriggerRightFromEmpty>k__BackingField: {fileID: 2737245069092035005}
   <TriggerLeftFromSlope>k__BackingField: {fileID: 6330590915433772393}
   <TriggerRightFromSlope>k__BackingField: {fileID: 3875705187247861826}
-  <TriggerAboveDestructableBlock>k__BackingField: {fileID: 5824850679847598460}
+  <TriggerAboveDestructableBlock>k__BackingField: {fileID: 1774618828517447092}
+  <TriggerOnDestructableBlock>k__BackingField: {fileID: 5824850679847598460}
   <TriggerBelowDestructableBlock>k__BackingField: {fileID: 3210781129683495325}
   <TriggerLeftFromBlock>k__BackingField: {fileID: 1434812488120126114}
   <TriggerRightFromBlock>k__BackingField: {fileID: 8784214040361974606}
@@ -4781,7 +4782,7 @@ GameObject:
   - component: {fileID: 2246137511044806567}
   - component: {fileID: 5211023195078376666}
   - component: {fileID: 79055367946815959}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left From Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4922,7 +4923,7 @@ GameObject:
   - component: {fileID: 7272785540063381473}
   - component: {fileID: 4033611516481376201}
   - component: {fileID: 3875705187247861826}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right From Slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5053,7 +5054,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1606335834977641545}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5077,6 +5078,7 @@ Transform:
   - {fileID: 7735193522372353233}
   - {fileID: 7272785540063381473}
   - {fileID: 8764235995686004790}
+  - {fileID: 8259831620644050257}
   - {fileID: 8380010512607048450}
   - {fileID: 2806361738390694686}
   - {fileID: 535937358211394289}
@@ -5126,7 +5128,7 @@ GameObject:
   - component: {fileID: 8380010512607048450}
   - component: {fileID: 8188046603774722305}
   - component: {fileID: 3210781129683495325}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Below Destructable Blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5146,7 +5148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606335834977641545}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8188046603774722305
 BoxCollider2D:
@@ -5228,7 +5230,7 @@ GameObject:
   - component: {fileID: 535937358211394289}
   - component: {fileID: 510539822550579779}
   - component: {fileID: 8784214040361974606}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right From Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5248,7 +5250,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606335834977641545}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &510539822550579779
 BoxCollider2D:
@@ -5312,13 +5314,84 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7933835987272670228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.5, y: -11, z: 0}
+  m_LocalPosition: {x: -9.5, y: -11.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6438134784183069594}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8053174071891328463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8259831620644050257}
+  - component: {fileID: 5640643603932680954}
+  - component: {fileID: 1774618828517447092}
+  m_Layer: 11
+  m_Name: Above Destructable Blocks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8259831620644050257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053174071891328463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.4, y: -8.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1606335834977641545}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &5640643603932680954
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053174071891328463}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.8856964, y: 0.12954998}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.0073357, y: 2.2603226}
+  m_EdgeRadius: 0
+--- !u!114 &1774618828517447092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053174071891328463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64bfc96c66664d4888b460f17e72520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8288173293940685190
 GameObject:
   m_ObjectHideFlags: 0
@@ -5330,7 +5403,7 @@ GameObject:
   - component: {fileID: 5991540284202605411}
   - component: {fileID: 5271965824811434698}
   - component: {fileID: 4925634799138213707}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: On Top Of Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5350,7 +5423,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606335834977641545}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5271965824811434698
 BoxCollider2D:
@@ -5401,7 +5474,7 @@ GameObject:
   - component: {fileID: 2806361738390694686}
   - component: {fileID: 3701271737392982681}
   - component: {fileID: 1434812488120126114}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left From Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5421,7 +5494,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606335834977641545}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3701271737392982681
 BoxCollider2D:
@@ -5503,8 +5576,8 @@ GameObject:
   - component: {fileID: 8764235995686004790}
   - component: {fileID: 3319097985554990686}
   - component: {fileID: 5824850679847598460}
-  m_Layer: 0
-  m_Name: Above Destructable Blocks
+  m_Layer: 11
+  m_Name: On Destructable Blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5538,7 +5611,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8856964, y: 0.63539076}
+  m_Offset: {x: 0.8856964, y: 0.33338213}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5549,7 +5622,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.0073357, y: 3.2720041}
+  m_Size: {x: 7.0073357, y: 2.6679869}
   m_EdgeRadius: 0
 --- !u!114 &5824850679847598460
 MonoBehaviour:
@@ -5574,7 +5647,7 @@ GameObject:
   - component: {fileID: 4360724340189996657}
   - component: {fileID: 9215104720808506263}
   - component: {fileID: 2737245069092035005}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right From Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
