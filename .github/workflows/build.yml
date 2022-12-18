@@ -23,6 +23,11 @@ jobs:
         with:
           lfs: true
 
+      - name: Debug
+        run:
+          - sudo apt -y install tree 
+          - tree
+
       - name: Cache Libraries
         uses: actions/cache@v2
         with:
