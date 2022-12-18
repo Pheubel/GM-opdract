@@ -25,8 +25,9 @@ jobs:
 
       - name: Debug
         run:
-          - sudo apt -y install tree 
-          - tree
+          - |
+            sudo apt -y install tree 
+            tree
 
       - name: Cache Libraries
         uses: actions/cache@v2
