@@ -40,7 +40,7 @@ public class PlayerInteractionTests : InputTestFixture
     {
         Debug.Log("teardown called");
 
-        Object.Destroy(_scenario);
+        Object.Destroy(_scenario.gameObject);
     }
 
     private GameObject PreparePlayer(Transform location)
