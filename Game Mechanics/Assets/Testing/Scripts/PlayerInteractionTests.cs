@@ -180,4 +180,98 @@ public class PlayerInteractionTests : InputTestFixture
 
         Object.Destroy(player);
     }
+
+    [UnityTest]
+    public IEnumerator PlayerCannotSingleJumpBlockMovingLeft()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.RightFromBlock);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.aKey);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey);
+        yield return new WaitForSeconds(0.2f);
+        Release(keyboard.spaceKey);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerRightFromBlock.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerCannotSingleJumpBlockMovingRight()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.LeftFromBlock);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.dKey, 1);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey);
+        yield return new WaitForSeconds(0.2f);
+        Release(keyboard.spaceKey);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsTrue(_scenario.TriggerLeftFromBlock.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerCanDoubleJumpBlockMovingLeft()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.RightFromBlock);
+        player.GetComponent<PlayerMovement>().SetMaxDoubleJumps(1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.aKey);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey);
+        yield return new WaitForSeconds(0.2f);
+        Release(keyboard.spaceKey);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsFalse(_scenario.TriggerRightFromBlock.IsPlayerInTrigger);
+        Assert.IsTrue(_scenario.TriggerOnTopOfBlock.HasPlayerEnteredTrigger);
+        Assert.IsTrue(_scenario.TriggerLeftFromBlock.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerCanDoubleJumpBlockMovingRight()
+    {
+        var keyboard = InputSystem.AddDevice<Keyboard>();
+        var player = PreparePlayer(_scenario.LeftFromBlock);
+        player.GetComponent<PlayerMovement>().SetMaxDoubleJumps(1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Press(keyboard.dKey, 1);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey);
+        yield return new WaitForSeconds(0.2f);
+        Release(keyboard.spaceKey);
+        yield return new WaitForSeconds(0.2f);
+        Press(keyboard.spaceKey);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.IsFalse(_scenario.TriggerLeftFromBlock.IsPlayerInTrigger);
+        Assert.IsTrue(_scenario.TriggerOnTopOfBlock.HasPlayerEnteredTrigger);
+        Assert.IsTrue(_scenario.TriggerRightFromBlock.IsPlayerInTrigger);
+
+        Object.Destroy(player);
+    }
 }
